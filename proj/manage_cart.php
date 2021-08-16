@@ -1,8 +1,6 @@
 <?php include __DIR__. '/partials/init.php'; ?>
 
 <?php 
-//session_start();
-//session_destroy();
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
@@ -14,25 +12,25 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             if(in_array($_POST['Item_Name'],$myitems))
             {
                 echo "<script>
-                    alert('商品已加入購物車');
+                    alert('已存在購物車');
                     window.location.href='product_list.php';
                 </script>";
             }
             else
             {
                 $count=count($_SESSION['cart']);
-                $_SESSION['cart'][$count]=array('Item_Name'=>$POST['Item_Name'],'Price'=>$_POST['Price'],'Quantity'=>1);
+                $_SESSION['cart'][$count]=array('Item_Name'=>$_POST['Item_Name'],'Price'=>$_POST['Price'],'Quantity'=>1);
                 echo "<script>
-                    alert('商品已存在購物車');
+                    alert('已加入購物車');
                     window.location.href='product_list.php';
                 </script>";
             }
         }
         else
         {
-            $_SESSION['cart'][0]=array('Item_Name'=>$POST['Item_Name'],'Price'=>$_POST['Price'],'Quantity'=>1);
+            $_SESSION['cart'][0]=array('Item_Name'=>$_POST['Item_Name'],'Price'=>$_POST['Price'],'Quantity'=>1);
             echo "<script>
-                    alert('商品已存在購物車');
+                    alert('已加入購物車');
                     window.location.href='product_list.php';
                 </script>";
         }

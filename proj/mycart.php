@@ -24,18 +24,18 @@
                 </thead>
                 <tbody class="text-center">
                     <?php
-                        $total=0;
+                    // $total=0;
                         if(isset($_SESSION['cart']))
                         {
                             foreach($_SESSION['cart'] as $key => $value)
                             {   
                                 $sr=$key+1;
-                                $total=$total+$value['Price'];
+                                // $total=$total+$value['Price'];
                                 echo"
                                     <tr>
                                         <td>$sr</td>
                                         <td>$value[Item_Name]</td>
-                                        <td>$value[Price]<input type='hidden' class='iprice' value='$value[Price]'> </td>
+                                        <td>$value[Price]<input type='hidden' class='iprice' value='$value[Price]'></td>
                                         <td><input class='text-center iquantity' onchange='subTotal()' type='number' value='$value[Quantity]' min='1' max='10'></td>
                                         <td class='itotal'></td>
                                         <td>
@@ -43,7 +43,6 @@
                                                 <button name='Remove_Item' class='btn btn-sm btn-outline-danger'>刪除</button>
                                                 <input type='hidden' name='Item_Name' value='$value[Item_Name]'>
                                             </form>
-                                            
                                         </td>
                                     </tr>
                                 ";
@@ -57,10 +56,12 @@
         <div class="col-lg-3">
             <div class= "border bg-light rounded p-4">
                 <h4>總金額:</h4>
-                <h6 class="text-right" id="gtotal"></h6>
+                <h6 class="text-right gtotal" id=""></h6>
+                <!-- <?php echo $gt ?> -->
+                
                 <form>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                        <input class="form-check-input" type="radio" name="defaultCheck" id="defaultCheck1" checked>
                         <label class="form-check-label" for="defaultCheck1">
                             現金支付
                         </label>
@@ -75,16 +76,23 @@
 
 <script>
 
+    var gt=0;
     var iprice=document.getElementsByClassName('iprice');
     var iquantity=document.getElementsByClassName('iquantity');
     var itotal=document.getElementsByClassName('itotal');
+    var gtotal=document.getElementsByClassName('gtotal');
 
     function subTotal()
-    {
+    {   
+        gt=0;
         for(i=0;i<iprice.length;i++)
         {
             itotal[i].innerText=(iprice[i].value)*(iquantity[i].value);
+
+            gt=gt+(iprice[i].value)*(iquantity[i].value);
+
         }
+        gtotal.innerText=gt;
     }
 
 
