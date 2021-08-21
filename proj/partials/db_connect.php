@@ -1,6 +1,6 @@
 <?php
 $db_host = 'localhost';
-$db_name = 'mfee19';
+$db_name = 'shopping_cart';
 $db_user = 'root';
 $db_pass = '';
 

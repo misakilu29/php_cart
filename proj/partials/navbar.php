@@ -12,6 +12,7 @@
                     <a class="nav-link" href="product_list.php">商品館</a>
                 </li>
             </ul>
+            <!-- 購物車計數 -->
             <div>
                 <?php 
                     $count=0;
@@ -22,7 +23,7 @@
                 ?>
                 <a href="mycart.php" class="btn btn-outline-success">購物車 (<?php echo $count; ?>)</a>
             </div>
-
+            <!-- 購物車計數 -->
             <ul class="navbar-nav">
                 <?php if(isset($_SESSION['user'])): ?>
                     <li class="nav-item active">
