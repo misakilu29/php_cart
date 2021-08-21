@@ -61,7 +61,7 @@
         <div class="col-lg-3">
             <div class= "border bg-light rounded p-4">
                 <h4>總金額:</h4>
-                <h6 class="text-right" id="gtotal"></h6>
+                <h6 class="text-right" class="gtotal">元</h6>
                 <!-- $<?php echo number_format($gtotal, 2) ?> -->
                 <br>
                 <?php
