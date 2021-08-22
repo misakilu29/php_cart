@@ -3,7 +3,8 @@
 <?php 
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
-{
+{   
+    // 加入購物車
     if(isset($_POST['Add_To_Cart']))
     {
         if(isset($_SESSION['cart']))
@@ -35,6 +36,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 </script>";
         }
     }
+    // 移除產品
     if(isset($_POST['Remove_Item']))
     {
         foreach($_SESSION['cart'] as $key => $value)
@@ -50,6 +52,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 }   
         }
     }
+    // 調整數量
     if(isset($_POST['Mod_Quantity']))
     {
         foreach($_SESSION['cart'] as $key => $value)

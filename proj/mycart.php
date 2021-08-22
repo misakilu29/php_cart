@@ -126,8 +126,10 @@
     </div>
 </div>
 
-<script>
+<?php include __DIR__. '/partials/scripts.php'; ?>
 
+<!-- 計算總額 -->
+<script>
     let gt=0;
     let iprice=document.getElementsByClassName('iprice');
     let iquantity=document.getElementsByClassName('iquantity');
@@ -151,6 +153,7 @@
     subTotal();
 
 </script>
+<!-- 資料上傳 -->
 <script>
     const email_re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     const mobile_re = /^09\d{2}-?\d{3}-?\d{3}$/;
